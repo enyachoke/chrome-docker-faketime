@@ -22,6 +22,8 @@ RUN apt-get update && apt-get install -y google-chrome-stable \
 RUN mkdir -p /tmp/.X11-unix && chmod 1777 /tmp/.X11-unix
 RUN chmod -R 777 /root/
 
+ADD . /app
+
 WORKDIR /
 RUN apt-get update && apt-get install -y git build-essential
 RUN git clone https://github.com/wolfcw/libfaketime.git

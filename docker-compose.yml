@@ -1,18 +1,30 @@
 version: '3.2'
 services:
-  puppet:
+  browser1:
      build: .
      command: sh -c '/app/dc_entry.sh'
      working_dir: /app
      stdin_open: true
      tty: true
      ports:
-       - "5900:5900"
+       - "5800:5900"
      environment:
         - VNC_SERVER_PASSWORD=secret
         # +15d or -6d
         - FAKETIME=+10d
-     shm_size: 512M
+     shm_size: 1g
      user: puppy
-     volumes:
-        - .:/app
+#   browser2:
+#      build: .
+#      command: sh -c '/app/dc_entry.sh'
+#      working_dir: /app
+#      stdin_open: true
+#      tty: true
+#      ports:
+#        - "5900:5900"
+#      environment:
+#         - VNC_SERVER_PASSWORD=secret
+#         # +15d or -6d
+#         - FAKETIME=+10d
+#      shm_size: 1g
+#      user: puppy
