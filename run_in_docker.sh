@@ -8,4 +8,4 @@ if [ -z "$AUTHFILE" ]; then
     AUTHFILE=$(tempfile -n "$XVFB_RUN_TMPDIR/Xauthority")
 fi
 
-LD_PRELOAD=/usr/local/lib/faketime/libfaketime.so.1 FAKETIME_NO_CACHE=1 DISPLAY=:$SERVERNUM XAUTHORITY=$AUTHFILE google-chrome-stable --no-sandbox --disable-setuid-sandbox
+LD_PRELOAD=/usr/local/lib/faketime/libfaketime.so.1 FAKETIME_NO_CACHE=1 DISPLAY=:$SERVERNUM XAUTHORITY=$AUTHFILE google-chrome-stable --no-sandbox --disable-setuid-sandbox --unsafely-treat-insecure-origin-as-secure=http://host.docker.internal:5988
